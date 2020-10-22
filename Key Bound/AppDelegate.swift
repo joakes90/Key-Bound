@@ -119,5 +119,15 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                                             data2: -1)
         keyUpEvent?.cgEvent?.post(tap: .cghidEventTap)
     }
+    
+    @IBAction func expose(_ sender: Any) {
+        NSWorkspace.shared.launchApplication("Mission Control")
+    }
+    
+    @IBAction func launchControl(_ sender: Any) {
+        NSWorkspace.shared.launchApplication("Launchpad")
+    }
+    
+    
 }
 
