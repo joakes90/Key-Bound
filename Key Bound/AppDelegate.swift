@@ -128,6 +128,100 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         NSWorkspace.shared.launchApplication("Launchpad")
     }
     
+    @IBAction func playPause(_ sender: Any) {
+        let keyCode = NX_KEYTYPE_PLAY
+        let keyDownEvent = NSEvent.otherEvent(with: .systemDefined,
+                                       location: NSPoint.zero,
+                                       modifierFlags: NSEvent.ModifierFlags(rawValue: 0xa00),
+                                       timestamp: 0,
+                                       windowNumber: 0,
+                                       context: nil,
+                                       subtype: 8,
+                                       data1: (Int((keyCode << 16 as Int32) | (0xa << 8 as Int32))),
+                                       data2: -1)
+        keyDownEvent?.cgEvent?.post(tap: .cghidEventTap)
+        let keyUpEvent = NSEvent.otherEvent(with: .systemDefined,
+                                            location: NSPoint.zero,
+                                            modifierFlags: NSEvent.ModifierFlags(rawValue: 0xb00),
+                                            timestamp: 0,
+                                            windowNumber: 0,
+                                            context: nil,
+                                            subtype: 8,
+                                            data1: (Int((keyCode << 16 as Int32) | (0xb << 8 as Int32))),
+                                            data2: -1)
+        keyUpEvent?.cgEvent?.post(tap: .cghidEventTap)
+    }
     
+    @IBAction func next(_ sender: Any) {
+        let keyCode = NX_KEYTYPE_NEXT
+        let keyDownEvent = NSEvent.otherEvent(with: .systemDefined,
+                                       location: NSPoint.zero,
+                                       modifierFlags: NSEvent.ModifierFlags(rawValue: 0xa00),
+                                       timestamp: 0,
+                                       windowNumber: 0,
+                                       context: nil,
+                                       subtype: 8,
+                                       data1: (Int((keyCode << 16 as Int32) | (0xa << 8 as Int32))),
+                                       data2: -1)
+        keyDownEvent?.cgEvent?.post(tap: .cghidEventTap)
+        let keyUpEvent = NSEvent.otherEvent(with: .systemDefined,
+                                            location: NSPoint.zero,
+                                            modifierFlags: NSEvent.ModifierFlags(rawValue: 0xb00),
+                                            timestamp: 0,
+                                            windowNumber: 0,
+                                            context: nil,
+                                            subtype: 8,
+                                            data1: (Int((keyCode << 16 as Int32) | (0xb << 8 as Int32))),
+                                            data2: -1)
+        keyUpEvent?.cgEvent?.post(tap: .cghidEventTap)
+    }
+    
+    @IBAction func last(_ sender: Any) {
+        let keyCode = NX_KEYTYPE_NEXT
+        let keyDownEvent = NSEvent.otherEvent(with: .systemDefined,
+                                       location: NSPoint.zero,
+                                       modifierFlags: NSEvent.ModifierFlags(rawValue: 0xa00),
+                                       timestamp: 0,
+                                       windowNumber: 0,
+                                       context: nil,
+                                       subtype: 8,
+                                       data1: (Int((keyCode << 16 as Int32) | (0xa << 8 as Int32))),
+                                       data2: -1)
+        keyDownEvent?.cgEvent?.post(tap: .cghidEventTap)
+        let keyUpEvent = NSEvent.otherEvent(with: .systemDefined,
+                                            location: NSPoint.zero,
+                                            modifierFlags: NSEvent.ModifierFlags(rawValue: 0xb00),
+                                            timestamp: 0,
+                                            windowNumber: 0,
+                                            context: nil,
+                                            subtype: 8,
+                                            data1: (Int((keyCode << 16 as Int32) | (0xb << 8 as Int32))),
+                                            data2: -1)
+        keyUpEvent?.cgEvent?.post(tap: .cghidEventTap)
+    }
+    
+    @IBAction func mute(_ sender: Any) {
+        let keyCode = NX_KEYTYPE_MUTE
+        let keyDownEvent = NSEvent.otherEvent(with: .systemDefined,
+                                       location: NSPoint.zero,
+                                       modifierFlags: NSEvent.ModifierFlags(rawValue: 0xa00),
+                                       timestamp: 0,
+                                       windowNumber: 0,
+                                       context: nil,
+                                       subtype: 8,
+                                       data1: (Int((keyCode << 16 as Int32) | (0xa << 8 as Int32))),
+                                       data2: -1)
+        keyDownEvent?.cgEvent?.post(tap: .cghidEventTap)
+        let keyUpEvent = NSEvent.otherEvent(with: .systemDefined,
+                                            location: NSPoint.zero,
+                                            modifierFlags: NSEvent.ModifierFlags(rawValue: 0xb00),
+                                            timestamp: 0,
+                                            windowNumber: 0,
+                                            context: nil,
+                                            subtype: 8,
+                                            data1: (Int((keyCode << 16 as Int32) | (0xb << 8 as Int32))),
+                                            data2: -1)
+        keyUpEvent?.cgEvent?.post(tap: .cghidEventTap)
+    }
 }
 
