@@ -223,5 +223,80 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                                             data2: -1)
         keyUpEvent?.cgEvent?.post(tap: .cghidEventTap)
     }
+    
+    @IBAction func powerEject(_ sender: Any) {
+        // TODO: Test with external optical dirve
+        let keyCode = NX_KEYTYPE_EJECT
+        let keyDownEvent = NSEvent.otherEvent(with: .systemDefined,
+                                       location: NSPoint.zero,
+                                       modifierFlags: NSEvent.ModifierFlags(rawValue: 0xa00),
+                                       timestamp: 0,
+                                       windowNumber: 0,
+                                       context: nil,
+                                       subtype: 8,
+                                       data1: (Int((keyCode << 16 as Int32) | (0xa << 8 as Int32))),
+                                       data2: -1)
+        keyDownEvent?.cgEvent?.post(tap: .cghidEventTap)
+        let keyUpEvent = NSEvent.otherEvent(with: .systemDefined,
+                                            location: NSPoint.zero,
+                                            modifierFlags: NSEvent.ModifierFlags(rawValue: 0xb00),
+                                            timestamp: 0,
+                                            windowNumber: 0,
+                                            context: nil,
+                                            subtype: 8,
+                                            data1: (Int((keyCode << 16 as Int32) | (0xb << 8 as Int32))),
+                                            data2: -1)
+        keyUpEvent?.cgEvent?.post(tap: .cghidEventTap)
+    }
+    
+    @IBAction func keyBrightUp(_ sender: Any) {
+        // TODO: Test with illuminated keyboard
+        let keyCode = NX_KEYTYPE_ILLUMINATION_UP
+        let keyDownEvent = NSEvent.otherEvent(with: .systemDefined,
+                                       location: NSPoint.zero,
+                                       modifierFlags: NSEvent.ModifierFlags(rawValue: 0xa00),
+                                       timestamp: 0,
+                                       windowNumber: 0,
+                                       context: nil,
+                                       subtype: 8,
+                                       data1: (Int((keyCode << 16 as Int32) | (0xa << 8 as Int32))),
+                                       data2: -1)
+        keyDownEvent?.cgEvent?.post(tap: .cghidEventTap)
+        let keyUpEvent = NSEvent.otherEvent(with: .systemDefined,
+                                            location: NSPoint.zero,
+                                            modifierFlags: NSEvent.ModifierFlags(rawValue: 0xb00),
+                                            timestamp: 0,
+                                            windowNumber: 0,
+                                            context: nil,
+                                            subtype: 8,
+                                            data1: (Int((keyCode << 16 as Int32) | (0xb << 8 as Int32))),
+                                            data2: -1)
+        keyUpEvent?.cgEvent?.post(tap: .cghidEventTap)
+    }
+    
+    @IBAction func keyBrightDown(_ sender: Any) {
+        // TODO: Test with external optical dirve
+        let keyCode = NX_KEYTYPE_ILLUMINATION_DOWN
+        let keyDownEvent = NSEvent.otherEvent(with: .systemDefined,
+                                       location: NSPoint.zero,
+                                       modifierFlags: NSEvent.ModifierFlags(rawValue: 0xa00),
+                                       timestamp: 0,
+                                       windowNumber: 0,
+                                       context: nil,
+                                       subtype: 8,
+                                       data1: (Int((keyCode << 16 as Int32) | (0xa << 8 as Int32))),
+                                       data2: -1)
+        keyDownEvent?.cgEvent?.post(tap: .cghidEventTap)
+        let keyUpEvent = NSEvent.otherEvent(with: .systemDefined,
+                                            location: NSPoint.zero,
+                                            modifierFlags: NSEvent.ModifierFlags(rawValue: 0xb00),
+                                            timestamp: 0,
+                                            windowNumber: 0,
+                                            context: nil,
+                                            subtype: 8,
+                                            data1: (Int((keyCode << 16 as Int32) | (0xb << 8 as Int32))),
+                                            data2: -1)
+        keyUpEvent?.cgEvent?.post(tap: .cghidEventTap)
+    }
 }
 
