@@ -10,6 +10,7 @@
 		D07A1EA12540D01600F45B05 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D07A1EA02540D01600F45B05 /* AppDelegate.swift */; };
 		D07A1EA32540D01600F45B05 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D07A1EA22540D01600F45B05 /* Assets.xcassets */; };
 		D07A1EA62540D01600F45B05 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = D07A1EA42540D01600F45B05 /* MainMenu.xib */; };
+		D0ACE7C12544B8E900EE2019 /* Preferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0ACE7C02544B8E900EE2019 /* Preferences.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +20,7 @@
 		D07A1EA52540D01600F45B05 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		D07A1EA72540D01600F45B05 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D07A1EA82540D01600F45B05 /* Key_Bound.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Key_Bound.entitlements; sourceTree = "<group>"; };
+		D0ACE7C02544B8E900EE2019 /* Preferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preferences.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +53,7 @@
 		D07A1E9F2540D01500F45B05 /* Key Bound */ = {
 			isa = PBXGroup;
 			children = (
+				D0ACE7BF2544B8AE00EE2019 /* Views */,
 				D07A1EA02540D01600F45B05 /* AppDelegate.swift */,
 				D07A1EA22540D01600F45B05 /* Assets.xcassets */,
 				D07A1EA42540D01600F45B05 /* MainMenu.xib */,
@@ -58,6 +61,14 @@
 				D07A1EA82540D01600F45B05 /* Key_Bound.entitlements */,
 			);
 			path = "Key Bound";
+			sourceTree = "<group>";
+		};
+		D0ACE7BF2544B8AE00EE2019 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				D0ACE7C02544B8E900EE2019 /* Preferences.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -129,6 +140,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D0ACE7C12544B8E900EE2019 /* Preferences.swift in Sources */,
 				D07A1EA12540D01600F45B05 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
