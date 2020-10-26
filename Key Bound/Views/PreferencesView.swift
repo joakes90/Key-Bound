@@ -24,10 +24,9 @@ struct PreferencesView: View {
                             Text(key.rawValue.uppercased())
                             Spacer()
                             MenuButton(label: Text("none")) {
-                                Text("Volume Up")
-                                Text("Volume Down")
-                                Text("Display Brightness Up")
-                                Text("Display Brightness Down")
+                                ForEach(MappableActions.allCases, id: \.self) { action in
+                                    Text(action.rawValue)
+                                }
                             } .frame(width: 250, alignment: .center)
                         }
                     }
