@@ -14,36 +14,9 @@ struct Preferences: View {
 
     var body: some View {
         VStack {
-            GroupBox(label: Text("Keybound Preferences")
+            GroupBox(label: Text("Key binding preferences")
                         .bold()) {
                 VStack {
-                    HStack{
-                        Text("Show in Dock")
-                            .bold()
-                        Spacer()
-                        Toggle(isOn: $showsInDock) {
-                            Text("Show in Dock")
-                        }
-                    }
-                    .padding()
-                    HStack{
-                        Text("Show in MenuBar")
-                            .bold()
-                        Spacer()
-                        Toggle(isOn: $showsInMenuBar) {
-                            Text("Show in MenuBar")
-                        }
-                    }
-                    .padding()
-                    HStack{
-                        Text("Launches at Login")
-                            .bold()
-                        Spacer()
-                        Toggle(isOn: $showsInDock) {
-                            Text("Launches at Login")
-                        }
-                    }
-                    .padding()
                     Text("Key Bindings")
                         .bold()
                     ForEach(Range(1...12)) {number in
@@ -62,6 +35,30 @@ struct Preferences: View {
                 
             }
             .padding()
+            GroupBox(label: Text("App preferences")
+                        .bold(), content: {
+                            VStack {
+                                HStack{
+                                    Toggle(isOn: $showsInDock) {
+                                        Text("Show in Dock")
+                                    }
+                                    Spacer()
+                                }
+                                HStack{
+                                    Toggle(isOn: $showsInMenuBar) {
+                                        Text("Show in MenuBar")
+                                    }
+                                    Spacer()
+                                }
+                                HStack{
+                                    Toggle(isOn: $showsInDock) {
+                                        Text("Launches at Login")
+                                    }
+                                    Spacer()
+                                }
+                            }
+            })
+                .padding()
         }
     }
 }
