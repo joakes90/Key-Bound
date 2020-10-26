@@ -34,18 +34,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     private func createPrefsWindow() {
         // TODO: This should no longer be a thing once the piblishers are up and running
-        let preferencesView = PreferencesView(f1Selection: .none,
-                                              f2Selection: .none,
-                                              f3Selection: .none,
-                                              f4Selection: .none,
-                                              f5Selection: .none,
-                                              f6Selection: .none,
-                                              f7Selection: .none,
-                                              f8Selection: .none,
-                                              f9Selection: .none,
-                                              f10Selection: .none,
-                                              f11Selection: .none,
-                                              f12Selection: .none)
+        let preferencesView = PreferencesView()
             .frame(minWidth: 480.0, maxWidth: .infinity, minHeight: 600.0, maxHeight: .infinity)
         window = NSWindow(contentRect: NSRect(x: 0, y: 0, width: 480.0, height: 500.0),
                           styleMask: [.titled, .closable, .miniaturizable, .resizable],

@@ -14,26 +14,14 @@ struct PreferencesView: View {
     @State var launchesAtLogin = true
     @State var showPrefsAtLaunch = true
     
-    // TODO: these will probably be observed objects at some point
-    @State var f1Selection: MappableAction
-    @State var f2Selection: MappableAction
-    @State var f3Selection: MappableAction
-    @State var f4Selection: MappableAction
-    @State var f5Selection: MappableAction
-    @State var f6Selection: MappableAction
-    @State var f7Selection: MappableAction
-    @State var f8Selection: MappableAction
-    @State var f9Selection: MappableAction
-    @State var f10Selection: MappableAction
-    @State var f11Selection: MappableAction
-    @State var f12Selection: MappableAction
+    @ObservedObject var keyBindingsController = KeyBindingController.shared
 
     var body: some View {
         VStack {
             GroupBox(label: Text("Key binding preferences")
                         .bold()) {
                 VStack {
-                    ForEach(FunctionKeys.allCases, id: \.self) {key in
+                    ForEach(FunctionKey.allCases, id: \.self) {key in
                         HStack {
                             Text(key.rawValue.uppercased())
                             Spacer()
@@ -42,7 +30,7 @@ struct PreferencesView: View {
                                     content: /*@START_MENU_TOKEN@*/{
                                         ForEach(MappableAction.allCases, id: \.self) { boundAction in
                                             Button(boundAction.rawValue) {
-                                                f1Selection = boundAction
+                                                keyBindingsController.setAction(boundAction: boundAction, for: key)
                                             }
                                         }
                                     }/*@END_MENU_TOKEN@*/
@@ -91,17 +79,6 @@ struct PreferencesView: View {
 
 struct Preferences_Previews: PreviewProvider {
     static var previews: some View {
-        PreferencesView( f1Selection: .volumeUp,
-                         f2Selection: .volumeDown,
-                         f3Selection: .none,
-                         f4Selection: .none,
-                         f5Selection: .none,
-                         f6Selection: .none,
-                         f7Selection: .none,
-                         f8Selection: .none,
-                         f9Selection: .none,
-                         f10Selection: .none,
-                         f11Selection: .none,
-                         f12Selection: .none)
+        PreferencesView()
     }
 }
