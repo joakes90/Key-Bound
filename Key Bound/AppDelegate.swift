@@ -6,6 +6,7 @@
 //
 
 import Cocoa
+import SwiftUI
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
@@ -16,7 +17,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         // Insert code here to initialize your application
         requestPermissions()
-        regesterEvents()
+        // TODO: Make sure this is only fired when the open preferences at launch preference is enabled
+        createPrefsWindow()
+//        regesterEvents()
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {
@@ -29,6 +32,21 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
     }
     
+    private func createPrefsWindow() {
+        let preferencesView = PreferencesView()
+            .frame(minWidth: 480.0, maxWidth: .infinity, minHeight: 600.0, maxHeight: .infinity)
+        window = NSWindow(contentRect: NSRect(x: 0, y: 0, width: 480.0, height: 500.0),
+                          styleMask: [.titled, .closable, .miniaturizable, .resizable],
+                          backing: .buffered,
+                          defer: false)
+        window.center()
+        window.setFrameAutosaveName("Preferences")
+        window.contentView = NSHostingView(rootView: preferencesView)
+        window.title = "Preferences"
+        window.makeKeyAndOrderFront(self)
+    }
+    
+    // TODO: Break this out to be handled else where
     private func regesterEvents() {
         NSEvent.addGlobalMonitorForEvents(matching: .keyDown) { (event) in
             if event.keyCode == 101 {
@@ -40,3 +58,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
 }
 
+
+struct AppDelegate_Previews: PreviewProvider {
+    static var previews: some View {
+        /*@START_MENU_TOKEN@*/Text("Hello, World!")/*@END_MENU_TOKEN@*/
+    }
+}

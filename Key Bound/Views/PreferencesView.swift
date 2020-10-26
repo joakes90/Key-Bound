@@ -7,10 +7,11 @@
 
 import SwiftUI
 
-struct Preferences: View {
+struct PreferencesView: View {
     @State var showsInDock = true
     @State var showsInMenuBar = true
     @State var launchesAtLogin = true
+    @State var showPrefsAtLaunch = true
 
     var body: some View {
         VStack {
@@ -40,6 +41,12 @@ struct Preferences: View {
                             VStack {
                                 HStack{
                                     Toggle(isOn: $showsInDock) {
+                                        Text("Show Preferences window on app launch")
+                                    }
+                                    Spacer()
+                                }
+                                HStack{
+                                    Toggle(isOn: $showsInDock) {
                                         Text("Show in Dock")
                                     }
                                     Spacer()
@@ -59,12 +66,13 @@ struct Preferences: View {
                             }
             })
                 .padding()
+            Spacer()
         }
     }
 }
 
 struct Preferences_Previews: PreviewProvider {
     static var previews: some View {
-        Preferences()
+        PreferencesView()
     }
 }
