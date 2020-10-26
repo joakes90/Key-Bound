@@ -13,7 +13,20 @@ struct PreferencesView: View {
     @State var showsInMenuBar = true
     @State var launchesAtLogin = true
     @State var showPrefsAtLaunch = true
-    @State var f1Selection: MappableActions
+    
+    // TODO: these will probably be observed objects at some point
+    @State var f1Selection: MappableAction
+    @State var f2Selection: MappableAction
+    @State var f3Selection: MappableAction
+    @State var f4Selection: MappableAction
+    @State var f5Selection: MappableAction
+    @State var f6Selection: MappableAction
+    @State var f7Selection: MappableAction
+    @State var f8Selection: MappableAction
+    @State var f9Selection: MappableAction
+    @State var f10Selection: MappableAction
+    @State var f11Selection: MappableAction
+    @State var f12Selection: MappableAction
 
     var body: some View {
         VStack {
@@ -25,9 +38,9 @@ struct PreferencesView: View {
                             Text(key.rawValue.uppercased())
                             Spacer()
                                 MenuButton(
-                                    label: Text(f1Selection.rawValue),
+                                    label: Text(key.mappedValue?.action.rawValue ?? "None"),
                                     content: /*@START_MENU_TOKEN@*/{
-                                        ForEach(MappableActions.allCases, id: \.self) { boundAction in
+                                        ForEach(MappableAction.allCases, id: \.self) { boundAction in
                                             Button(boundAction.rawValue) {
                                                 f1Selection = boundAction
                                             }
@@ -78,6 +91,17 @@ struct PreferencesView: View {
 
 struct Preferences_Previews: PreviewProvider {
     static var previews: some View {
-        PreferencesView( f1Selection: .volumeUp)
+        PreferencesView( f1Selection: .volumeUp,
+                         f2Selection: .volumeDown,
+                         f3Selection: .none,
+                         f4Selection: .none,
+                         f5Selection: .none,
+                         f6Selection: .none,
+                         f7Selection: .none,
+                         f8Selection: .none,
+                         f9Selection: .none,
+                         f10Selection: .none,
+                         f11Selection: .none,
+                         f12Selection: .none)
     }
 }

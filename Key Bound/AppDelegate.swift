@@ -18,7 +18,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         // Insert code here to initialize your application
         requestPermissions()
         // TODO: Make sure this is only fired when the open preferences at launch preference is enabled
-        NX_KEYTYPE_ILLUMINATION_UP
         createPrefsWindow()
 //        regesterEvents()
     }
@@ -34,7 +33,19 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     private func createPrefsWindow() {
-        let preferencesView = PreferencesView(f1Selection: .none)
+        // TODO: This should no longer be a thing once the piblishers are up and running
+        let preferencesView = PreferencesView(f1Selection: .none,
+                                              f2Selection: .none,
+                                              f3Selection: .none,
+                                              f4Selection: .none,
+                                              f5Selection: .none,
+                                              f6Selection: .none,
+                                              f7Selection: .none,
+                                              f8Selection: .none,
+                                              f9Selection: .none,
+                                              f10Selection: .none,
+                                              f11Selection: .none,
+                                              f12Selection: .none)
             .frame(minWidth: 480.0, maxWidth: .infinity, minHeight: 600.0, maxHeight: .infinity)
         window = NSWindow(contentRect: NSRect(x: 0, y: 0, width: 480.0, height: 500.0),
                           styleMask: [.titled, .closable, .miniaturizable, .resizable],
