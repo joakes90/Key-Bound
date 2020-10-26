@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct PreferencesView: View {
+//    @ObservedObject var mapedValues = KeyBindingController.shared
     @State var showsInDock = true
     @State var showsInMenuBar = true
     @State var launchesAtLogin = true
@@ -18,11 +19,9 @@ struct PreferencesView: View {
             GroupBox(label: Text("Key binding preferences")
                         .bold()) {
                 VStack {
-                    Text("Key Bindings")
-                        .bold()
-                    ForEach(Range(1...12)) {number in
-                        HStack{
-                            Text("F\(number)")
+                    ForEach(FunctionKeys.allCases, id: \.self) {key in
+                        HStack {
+                            Text(key.rawValue.uppercased())
                             Spacer()
                             MenuButton(label: Text("none")) {
                                 Text("Volume Up")

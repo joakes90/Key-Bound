@@ -18,6 +18,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         // Insert code here to initialize your application
         requestPermissions()
         // TODO: Make sure this is only fired when the open preferences at launch preference is enabled
+        NX_KEYTYPE_ILLUMINATION_UP
         createPrefsWindow()
 //        regesterEvents()
     }
