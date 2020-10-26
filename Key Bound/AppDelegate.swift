@@ -34,7 +34,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     private func createPrefsWindow() {
-        let preferencesView = PreferencesView()
+        let preferencesView = PreferencesView(f1Selection: .none)
             .frame(minWidth: 480.0, maxWidth: .infinity, minHeight: 600.0, maxHeight: .infinity)
         window = NSWindow(contentRect: NSRect(x: 0, y: 0, width: 480.0, height: 500.0),
                           styleMask: [.titled, .closable, .miniaturizable, .resizable],

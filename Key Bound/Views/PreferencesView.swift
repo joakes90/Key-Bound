@@ -13,6 +13,7 @@ struct PreferencesView: View {
     @State var showsInMenuBar = true
     @State var launchesAtLogin = true
     @State var showPrefsAtLaunch = true
+    @State var f1Selection: MappableActions
 
     var body: some View {
         VStack {
@@ -23,11 +24,17 @@ struct PreferencesView: View {
                         HStack {
                             Text(key.rawValue.uppercased())
                             Spacer()
-                            MenuButton(label: Text("none")) {
-                                ForEach(MappableActions.allCases, id: \.self) { action in
-                                    Text(action.rawValue)
-                                }
-                            } .frame(width: 250, alignment: .center)
+                                MenuButton(
+                                    label: Text(f1Selection.rawValue),
+                                    content: /*@START_MENU_TOKEN@*/{
+                                        ForEach(MappableActions.allCases, id: \.self) { boundAction in
+                                            Button(boundAction.rawValue) {
+                                                f1Selection = boundAction
+                                            }
+                                        }
+                                    }/*@END_MENU_TOKEN@*/
+)
+                            .frame(width: 250, alignment: .center)
                         }
                     }
                 }
@@ -71,6 +78,6 @@ struct PreferencesView: View {
 
 struct Preferences_Previews: PreviewProvider {
     static var previews: some View {
-        PreferencesView()
+        PreferencesView( f1Selection: .volumeUp)
     }
 }
