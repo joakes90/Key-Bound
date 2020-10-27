@@ -28,11 +28,11 @@ struct PreferencesView: View {
                                 MenuButton(
                                     label: Text(binding.mapedValue?.actionName ?? "None"),
                                     content: /*@START_MENU_TOKEN@*/{
-//                                        ForEach(MappableAction.allCases, id: \.self) { boundAction in
-//                                            Button(boundAction.rawValue) {
+                                        ForEach(MappableActionNames.allCases, id: \.self) { action in
+                                            Button(action.rawValue) {
 //                                                keyBindingsController.setAction(boundAction: boundAction, for: key)
-//                                            }
-//                                        }
+                                            }
+                                        }
                                     }/*@END_MENU_TOKEN@*/
 )
                             .frame(width: 250, alignment: .center)

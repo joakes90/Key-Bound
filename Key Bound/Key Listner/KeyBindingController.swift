@@ -109,33 +109,50 @@ enum MappedValue {
     var actionName: String {
         switch self {
         case .keyEvent(NX_KEYTYPE_SOUND_UP):
-            return "Volume Up"
+            return MappableActionNames.volumeUp.rawValue
         case .keyEvent(NX_KEYTYPE_SOUND_DOWN):
-            return "Volume Down"
+            return MappableActionNames.volumeDown.rawValue
         case .keyEvent(NX_KEYTYPE_MUTE):
-            return "Mute"
+            return MappableActionNames.mute.rawValue
         case .keyEvent(NX_KEYTYPE_BRIGHTNESS_UP):
-            return "Brightness Up"
+            return MappableActionNames.brightnessUp.rawValue
         case .keyEvent(NX_KEYTYPE_BRIGHTNESS_DOWN):
-            return "Brightness Down"
+            return MappableActionNames.brightnessDown.rawValue
         case .keyEvent(NX_KEYTYPE_ILLUMINATION_UP):
-            return "Keyboard Brightness Up"
+            return MappableActionNames.keyboardUp.rawValue
         case .keyEvent(NX_KEYTYPE_ILLUMINATION_DOWN):
-            return "Keyboard Brightness Down"
+            return MappableActionNames.keyboardDown.rawValue
         case .keyEvent(NX_KEYTYPE_PLAY):
-            return "Play/Pause"
+            return MappableActionNames.playPause.rawValue
         case .keyEvent(NX_KEYTYPE_NEXT):
-            return "Next Track"
+            return MappableActionNames.next.rawValue
         case .keyEvent(NX_KEYTYPE_PREVIOUS):
-            return "Previous Track"
+            return MappableActionNames.last.rawValue
         case .keyEvent(NX_KEYTYPE_EJECT):
-            return "Eject"
+            return MappableActionNames.eject.rawValue
         case .appLaunch("Launchpad"):
-            return "Launch Pad"
+            return MappableActionNames.launchPad.rawValue
         case .appLaunch("Mission Control"):
-            return "Mission Control"
+            return MappableActionNames.missionControl.rawValue
         default:
-            return "None"
+            return MappableActionNames.none.rawValue
         }
     }
+}
+
+enum MappableActionNames: String, CaseIterable {
+    case volumeUp = "Volume Up"
+    case volumeDown = "Volume Down"
+    case mute = "Mute"
+    case brightnessUp = "Brightness Up"
+    case brightnessDown = "Brightness Down"
+    case keyboardUp = "Keyboard Brightness Up"
+    case keyboardDown = "Keyboard Brightness Down"
+    case playPause = "Play/Pause"
+    case next = "Next Track"
+    case last = "Previous Track"
+    case eject = "Eject"
+    case launchPad = "Launch Pad"
+    case missionControl = "Mission Control"
+    case none = "None"
 }
