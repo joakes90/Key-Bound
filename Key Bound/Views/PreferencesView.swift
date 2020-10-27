@@ -30,7 +30,7 @@ struct PreferencesView: View {
                                     content: /*@START_MENU_TOKEN@*/{
                                         ForEach(MappableActionNames.allCases, id: \.self) { action in
                                             Button(action.rawValue) {
-//                                                keyBindingsController.setAction(boundAction: boundAction, for: key)
+                                                binding.mapedValue = action.value
                                             }
                                         }
                                     }/*@END_MENU_TOKEN@*/

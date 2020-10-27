@@ -155,4 +155,39 @@ enum MappableActionNames: String, CaseIterable {
     case launchPad = "Launch Pad"
     case missionControl = "Mission Control"
     case none = "None"
+    
+    var value: MappedValue? {
+        get {
+            switch self {
+            case .volumeUp:
+                return .keyEvent(NX_KEYTYPE_SOUND_UP)
+            case .volumeDown:
+                return .keyEvent(NX_KEYTYPE_SOUND_DOWN)
+            case .mute:
+                return .keyEvent(NX_KEYTYPE_MUTE)
+            case .brightnessUp:
+                return .keyEvent(NX_KEYTYPE_BRIGHTNESS_UP)
+            case .brightnessDown:
+                return .keyEvent(NX_KEYTYPE_BRIGHTNESS_DOWN)
+            case .keyboardUp:
+                return .keyEvent(NX_KEYTYPE_ILLUMINATION_UP)
+            case .keyboardDown:
+                return .keyEvent(NX_KEYTYPE_ILLUMINATION_DOWN)
+            case .playPause:
+                return .keyEvent(NX_KEYTYPE_PLAY)
+            case .next:
+                return .keyEvent(NX_KEYTYPE_NEXT)
+            case .last:
+                return .keyEvent(NX_KEYTYPE_PREVIOUS)
+            case .eject:
+                return .keyEvent(NX_KEYTYPE_EJECT)
+            case .launchPad:
+                return .appLaunch("Launchpad")
+            case .missionControl:
+                return .appLaunch("Mission Control")
+            case .none:
+                return nil
+            }
+        }
+    }
 }
