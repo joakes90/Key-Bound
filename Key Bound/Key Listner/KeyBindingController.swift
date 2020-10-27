@@ -9,9 +9,9 @@ import Cocoa
 import Combine
 import SwiftUI
 
-class Binding: Hashable {
+class Binding: ObservableObject, Hashable {
     let key: FunctionKey
-    var mapedValue: MappedValue? {
+    @Published var mapedValue: MappedValue? {
         didSet {
             switch mapedValue {
             case .keyEvent(let number):
