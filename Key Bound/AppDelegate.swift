@@ -19,7 +19,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         requestPermissions()
         // TODO: Make sure this is only fired when the open preferences at launch preference is enabled
         createPrefsWindow()
-//        regesterEvents()
+        regesterEvents()
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {
@@ -50,19 +50,13 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     // TODO: Break this out to be handled else where
     private func regesterEvents() {
-        NSEvent.addGlobalMonitorForEvents(matching: .keyDown) { (event) in
-            if event.keyCode == 101 {
-                print("f9")
-            } else if event.keyCode == 109 {
-                print("f10")
-            }
-        }
+//        NSEvent.addGlobalMonitorForEvents(matching: .keyDown) { (event) in
+//            if event.keyCode == 101 {
+//                print("f9")
+//            } else if event.keyCode == 109 {
+//                print("f10")
+//            }
+//        }
     }
 }
 
-
-struct AppDelegate_Previews: PreviewProvider {
-    static var previews: some View {
-        /*@START_MENU_TOKEN@*/Text("Hello, World!")/*@END_MENU_TOKEN@*/
-    }
-}
