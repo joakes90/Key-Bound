@@ -36,6 +36,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         // TODO: This should no longer be a thing once the piblishers are up and running
         let preferencesView = PreferencesView()
             .frame(minWidth: 480.0, maxWidth: .infinity, minHeight: 600.0, maxHeight: .infinity)
+            .environmentObject(KeyBindingController.shared)
         window = NSWindow(contentRect: NSRect(x: 0, y: 0, width: 480.0, height: 500.0),
                           styleMask: [.titled, .closable, .miniaturizable, .resizable],
                           backing: .buffered,

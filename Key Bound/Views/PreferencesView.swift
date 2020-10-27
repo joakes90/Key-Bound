@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct PreferencesView: View {
-//    @ObservedObject var mapedValues = KeyBindingController.shared
+    @EnvironmentObject var keyBindingController: KeyBindingController
     @State var showsInDock = true
     @State var showsInMenuBar = true
     @State var launchesAtLogin = true
@@ -21,18 +21,18 @@ struct PreferencesView: View {
             GroupBox(label: Text("Key binding preferences")
                         .bold()) {
                 VStack {
-                    ForEach(FunctionKey.allCases, id: \.self) {key in
+                    ForEach(keyBindingController.bindings, id: \.self) {binding in
                         HStack {
-                            Text(key.rawValue.uppercased())
+                            Text(binding.key.rawValue.uppercased())
                             Spacer()
                                 MenuButton(
-                                    label: Text(key.mappedValue?.action.rawValue ?? "None"),
+                                    label: Text(binding.mapedValue?.actionName ?? "None"),
                                     content: /*@START_MENU_TOKEN@*/{
-                                        ForEach(MappableAction.allCases, id: \.self) { boundAction in
-                                            Button(boundAction.rawValue) {
-                                                keyBindingsController.setAction(boundAction: boundAction, for: key)
-                                            }
-                                        }
+//                                        ForEach(MappableAction.allCases, id: \.self) { boundAction in
+//                                            Button(boundAction.rawValue) {
+//                                                keyBindingsController.setAction(boundAction: boundAction, for: key)
+//                                            }
+//                                        }
                                     }/*@END_MENU_TOKEN@*/
 )
                             .frame(width: 250, alignment: .center)
