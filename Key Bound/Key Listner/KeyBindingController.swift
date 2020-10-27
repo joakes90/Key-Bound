@@ -63,7 +63,7 @@ class KeyBindingController: ObservableObject {
             case .appLaunch(let string):
                 userDefaults.setValue(string, forKey: FunctionKey.f1.rawValue)
             default:
-                return
+                userDefaults.setValue(nil, forKey: FunctionKey.f1.rawValue)
             }
             userDefaults.synchronize()
         }
@@ -86,7 +86,7 @@ class KeyBindingController: ObservableObject {
             case .appLaunch(let string):
                 userDefaults.setValue(string, forKey: FunctionKey.f2.rawValue)
             default:
-                return
+                userDefaults.setValue(nil, forKey: FunctionKey.f2.rawValue)
             }
             userDefaults.synchronize()
         }
@@ -109,7 +109,7 @@ class KeyBindingController: ObservableObject {
             case .appLaunch(let string):
                 userDefaults.setValue(string, forKey: FunctionKey.f3.rawValue)
             default:
-                return
+                userDefaults.setValue(nil, forKey: FunctionKey.f3.rawValue)
             }
             userDefaults.synchronize()
         }
@@ -132,7 +132,7 @@ class KeyBindingController: ObservableObject {
             case .appLaunch(let string):
                 userDefaults.setValue(string, forKey: FunctionKey.f4.rawValue)
             default:
-                return
+                userDefaults.setValue(nil, forKey: FunctionKey.f4.rawValue)
             }
             userDefaults.synchronize()
         }
@@ -155,7 +155,7 @@ class KeyBindingController: ObservableObject {
             case .appLaunch(let string):
                 userDefaults.setValue(string, forKey: FunctionKey.f5.rawValue)
             default:
-                return
+                userDefaults.setValue(nil, forKey: FunctionKey.f5.rawValue)
             }
             userDefaults.synchronize()
         }
@@ -178,7 +178,7 @@ class KeyBindingController: ObservableObject {
             case .appLaunch(let string):
                 userDefaults.setValue(string, forKey: FunctionKey.f6.rawValue)
             default:
-                return
+                userDefaults.setValue(nil, forKey: FunctionKey.f6.rawValue)
             }
             userDefaults.synchronize()
         }
@@ -201,7 +201,7 @@ class KeyBindingController: ObservableObject {
             case .appLaunch(let string):
                 userDefaults.setValue(string, forKey: FunctionKey.f7.rawValue)
             default:
-                return
+                userDefaults.setValue(nil, forKey: FunctionKey.f7.rawValue)
             }
             userDefaults.synchronize()
         }
@@ -224,7 +224,7 @@ class KeyBindingController: ObservableObject {
             case .appLaunch(let string):
                 userDefaults.setValue(string, forKey: FunctionKey.f8.rawValue)
             default:
-                return
+                userDefaults.setValue(nil, forKey: FunctionKey.f8.rawValue)
             }
             userDefaults.synchronize()
         }
@@ -247,7 +247,7 @@ class KeyBindingController: ObservableObject {
             case .appLaunch(let string):
                 userDefaults.setValue(string, forKey: FunctionKey.f9.rawValue)
             default:
-                return
+                userDefaults.setValue(nil, forKey: FunctionKey.f9.rawValue)
             }
             userDefaults.synchronize()
         }
@@ -270,7 +270,7 @@ class KeyBindingController: ObservableObject {
             case .appLaunch(let string):
                 userDefaults.setValue(string, forKey: FunctionKey.f10.rawValue)
             default:
-                return
+                userDefaults.setValue(nil, forKey: FunctionKey.f10.rawValue)
             }
             userDefaults.synchronize()
         }
@@ -293,7 +293,7 @@ class KeyBindingController: ObservableObject {
             case .appLaunch(let string):
                 userDefaults.setValue(string, forKey: FunctionKey.f11.rawValue)
             default:
-                return
+                userDefaults.setValue(nil, forKey: FunctionKey.f11.rawValue)
             }
             userDefaults.synchronize()
         }
@@ -316,7 +316,7 @@ class KeyBindingController: ObservableObject {
             case .appLaunch(let string):
                 userDefaults.setValue(string, forKey: FunctionKey.f12.rawValue)
             default:
-                return
+                userDefaults.setValue(nil, forKey: FunctionKey.f12.rawValue)
             }
             userDefaults.synchronize()
         }
