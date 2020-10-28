@@ -12,7 +12,7 @@ import SwiftUI
 class AppDelegate: NSObject, NSApplicationDelegate {
 
     @IBOutlet var window: NSWindow!
-
+    var keyListner: KeyListner?
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         // Insert code here to initialize your application
@@ -50,13 +50,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     // TODO: Break this out to be handled else where
     private func regesterEvents() {
-//        NSEvent.addGlobalMonitorForEvents(matching: .keyDown) { (event) in
-//            if event.keyCode == 101 {
-//                print("f9")
-//            } else if event.keyCode == 109 {
-//                print("f10")
-//            }
-//        }
+        keyListner = KeyListner(keybindingController: KeyBindingController.shared)
     }
 }
 

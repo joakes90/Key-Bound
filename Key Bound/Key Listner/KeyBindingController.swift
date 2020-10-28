@@ -7,13 +7,16 @@
 
 import Cocoa
 import Combine
-import SwiftUI
 
-class Binding: ObservableObject, Hashable {
+protocol KeyBindingControlable {
+    var bindings: [Binding] {get set}
+}
+
+class Binding: Hashable {
     let key: FunctionKey
-    @Published var mapedValue: MappedValue? {
+    var mappedValue: MappedValue? {
         didSet {
-            switch mapedValue {
+            switch mappedValue {
             case .keyEvent(let number):
                 UserDefaults.standard.setValue(number, forKey: key.rawValue)
             case .appLaunch(let string):
@@ -29,10 +32,10 @@ class Binding: ObservableObject, Hashable {
         self.key = key
         let value = UserDefaults.standard.value(forKey: key.rawValue)
         if let value = value as? Int32 {
-            self.mapedValue = .keyEvent(value)
+            self.mappedValue = .keyEvent(value)
         }
         if let value = value as? String {
-            self.mapedValue = .appLaunch(value)
+            self.mappedValue = .appLaunch(value)
         }
     }
     
@@ -51,7 +54,7 @@ class Binding: ObservableObject, Hashable {
     }
 }
 
-class KeyBindingController: ObservableObject {
+class KeyBindingController: KeyBindingControlable, ObservableObject {
     
     static let shared = KeyBindingController()
     @Published var bindings = [Binding]()
@@ -79,11 +82,11 @@ enum MappedValue {
         }
     }
     
-    func launchApplication(_ appName: String) {
+    private func launchApplication(_ appName: String) {
         NSWorkspace.shared.launchApplication(appName)
     }
     
-    func performKeyCode(_ keyCode: Int32) {
+    private func performKeyCode(_ keyCode: Int32) {
         let keyDownEvent = NSEvent.otherEvent(with: .systemDefined,
                                               location: NSPoint.zero,
                                               modifierFlags: NSEvent.ModifierFlags(rawValue: 0xa00),

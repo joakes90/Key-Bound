@@ -13,8 +13,7 @@ struct PreferencesView: View {
     @State var showsInMenuBar = true
     @State var launchesAtLogin = true
     @State var showPrefsAtLaunch = true
-    
-    @ObservedObject var keyBindingsController = KeyBindingController.shared
+
 
     var body: some View {
         VStack {
@@ -26,12 +25,12 @@ struct PreferencesView: View {
                             Text(binding.key.rawValue.uppercased())
                             Spacer()
                                 MenuButton(
-                                    label: Text(binding.mapedValue?.actionName ?? "None"),
+                                    label: Text(binding.mappedValue?.actionName ?? "None"),
                                     content: /*@START_MENU_TOKEN@*/{
                                         ForEach(MappableActionNames.allCases, id: \.self) { action in
                                             Button(action.rawValue) {
                                                 keyBindingController.objectWillChange.send()
-                                                binding.mapedValue = action.value
+                                                binding.mappedValue = action.value
                                             }
                                         }
                                     }/*@END_MENU_TOKEN@*/
