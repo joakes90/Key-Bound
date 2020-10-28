@@ -55,12 +55,5 @@ class KeyListner {
                 return
             }
         }
-        //        NSEvent.addGlobalMonitorForEvents(matching: .keyDown) { (event) in
-        //            if event.keyCode == 101 {
-        //                print("f9")
-        //            } else if event.keyCode == 109 {
-        //                print("f10")
-        //            }
-        //        }
     }
 }
