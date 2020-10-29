@@ -16,13 +16,15 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     var keyListner: KeyListner?
     var statusItem: NSStatusItem?
+
     func applicationDidFinishLaunching(_ aNotification: Notification) {
-        // Insert code here to initialize your application
+        let settingsController = SettingsController()
         requestPermissions()
         // TODO: Make sure this is only fired when the open preferences at launch preference is enabled
         createPrefsWindow()
-        // TODO: Make sure this is only displayed show in menubar is enabled
-        createStatusItem()
+        if settingsController.showInMenu {
+            createStatusItem()
+        }
         regesterEvents()
     }
 
@@ -43,6 +45,16 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         }
     }
     
+    func toggleMenuVisability(isOn: Bool) {
+        if isOn {
+            createStatusItem()
+        } else {
+            if let statusItem = statusItem {
+                NSStatusBar.system.removeStatusItem(statusItem)
+            }
+        }
+    }
+
     private func requestPermissions() {
         let options: NSDictionary = [kAXTrustedCheckOptionPrompt.takeUnretainedValue() as String : true]
         AXIsProcessTrustedWithOptions(options)
@@ -72,7 +84,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         statusItem?.menu = systemItemMenu
     }
 
-    // TODO: Break this out to be handled else where
     private func regesterEvents() {
         keyListner = KeyListner(keybindingController: KeyBindingController.shared)
     }

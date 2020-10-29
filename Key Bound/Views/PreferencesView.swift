@@ -9,8 +9,8 @@ import SwiftUI
 
 struct PreferencesView: View {
     @EnvironmentObject var keyBindingController: KeyBindingController
+    @ObservedObject var settingsController = SettingsController()
     @State var showsInDock = true
-    @State var showsInMenuBar = true
     @State var launchesAtLogin = true
     @State var showPrefsAtLaunch = true
 
@@ -58,7 +58,7 @@ struct PreferencesView: View {
                                     Spacer()
                                 }
                                 HStack{
-                                    Toggle(isOn: $showsInMenuBar) {
+                                    Toggle(isOn: $settingsController.showInMenu) {
                                         Text("Show in MenuBar")
                                     }
                                     Spacer()
