@@ -31,7 +31,11 @@
                                 </connections>
                             </menuItem>
                             <menuItem isSeparatorItem="YES" id="VOq-y0-SEH"/>
-                            <menuItem title="Preferences…" keyEquivalent="," id="BOF-NM-1cW"/>
+                            <menuItem title="Preferences…" keyEquivalent="," id="BOF-NM-1cW">
+                                <connections>
+                                    <action selector="presentPreferences:" target="Voe-Tx-rLC" id="Kh1-uS-zZY"/>
+                                </connections>
+                            </menuItem>
                             <menuItem isSeparatorItem="YES" id="wFC-TO-SCJ"/>
                             <menuItem title="Services" id="NMo-om-nkz">
                                 <modifierMask key="keyEquivalentModifierMask"/>
@@ -132,14 +136,18 @@
         </menu>
         <menu id="beU-SB-yRL">
             <items>
-                <menuItem title="Preferences…" keyEquivalent="," id="wNQ-Na-3xx"/>
+                <menuItem title="Preferences…" keyEquivalent="," id="wNQ-Na-3xx">
+                    <connections>
+                        <action selector="presentPreferences:" target="Voe-Tx-rLC" id="ruW-yU-T04"/>
+                    </connections>
+                </menuItem>
                 <menuItem title="Quit Key Bound" keyEquivalent="q" id="Psl-jk-vaR">
                     <connections>
                         <action selector="terminate:" target="-1" id="njQ-Rl-2Ra"/>
                     </connections>
                 </menuItem>
             </items>
-            <point key="canvasLocation" x="152" y="568"/>
+            <point key="canvasLocation" x="102" y="258"/>
         </menu>
     </objects>
 </document>

@@ -11,7 +11,7 @@ import SwiftUI
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
 
-    var window: NSWindow!
+    var window: NSWindow?
     @IBOutlet weak var systemItemMenu: NSMenu!
     
     var keyListner: KeyListner?
@@ -30,6 +30,14 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         // Insert code here to tear down your application
     }
     
+    @IBAction func presentPreferences(_ sender: Any) {
+        if window != nil {
+            window?.makeKeyAndOrderFront(nil)
+        } else {
+            createPrefsWindow()
+        }
+    }
+    
     private func requestPermissions() {
         let options: NSDictionary = [kAXTrustedCheckOptionPrompt.takeUnretainedValue() as String : true]
         AXIsProcessTrustedWithOptions(options)
@@ -45,11 +53,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                           styleMask: [.titled, .closable, .miniaturizable, .resizable],
                           backing: .buffered,
                           defer: false)
-        window.center()
-        window.setFrameAutosaveName("Preferences")
-        window.contentView = NSHostingView(rootView: preferencesView)
-        window.title = "Preferences"
-        window.makeKeyAndOrderFront(self)
+        window?.isReleasedWhenClosed = false
+        window?.center()
+        window?.setFrameAutosaveName("Preferences")
+        window?.contentView = NSHostingView(rootView: preferencesView)
+        window?.title = "Preferences"
+        window?.makeKeyAndOrderFront(self)
     }
 
     private func createStatusItem() {
