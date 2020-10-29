@@ -30,6 +30,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         // Insert code here to tear down your application
     }
     
+    func applicationShouldHandleReopen(_ sender: NSApplication, hasVisibleWindows flag: Bool) -> Bool {
+        presentPreferences(self)
+        return true
+    }
+    
     @IBAction func presentPreferences(_ sender: Any) {
         if window != nil {
             window?.makeKeyAndOrderFront(nil)
