@@ -11,7 +11,9 @@ import SwiftUI
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
 
-    @IBOutlet var window: NSWindow!
+    var window: NSWindow!
+    @IBOutlet weak var systemItemMenu: NSMenu!
+    
     var keyListner: KeyListner?
     var statusItem: NSStatusItem?
     func applicationDidFinishLaunching(_ aNotification: Notification) {
@@ -53,7 +55,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     private func createStatusItem() {
         statusItem = NSStatusBar.system.statusItem(withLength: 32.0)
         statusItem?.button?.image = #imageLiteral(resourceName: "Status_Item")
-//        statusItem.menu = // add menu
+        statusItem?.menu = systemItemMenu
     }
 
     // TODO: Break this out to be handled else where
