@@ -13,12 +13,14 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     @IBOutlet var window: NSWindow!
     var keyListner: KeyListner?
-
+    var statusItem: NSStatusItem?
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         // Insert code here to initialize your application
         requestPermissions()
         // TODO: Make sure this is only fired when the open preferences at launch preference is enabled
         createPrefsWindow()
+        // TODO: Make sure this is only displayed show in menubar is enabled
+        createStatusItem()
         regesterEvents()
     }
 
@@ -47,7 +49,13 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         window.title = "Preferences"
         window.makeKeyAndOrderFront(self)
     }
-    
+
+    private func createStatusItem() {
+        statusItem = NSStatusBar.system.statusItem(withLength: 32.0)
+        statusItem?.button?.image = #imageLiteral(resourceName: "Status_Item")
+//        statusItem.menu = // add menu
+    }
+
     // TODO: Break this out to be handled else where
     private func regesterEvents() {
         keyListner = KeyListner(keybindingController: KeyBindingController.shared)
