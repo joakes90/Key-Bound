@@ -11,7 +11,6 @@ import SwiftUI
 struct PreferencesView: View {
     @EnvironmentObject var keyBindingController: KeyBindingController
     @ObservedObject var settingsController = SettingsController()
-    @State var showsInDock = true
 
 
     var body: some View {
@@ -51,7 +50,7 @@ struct PreferencesView: View {
                                     Spacer()
                                 }
                                 HStack{
-                                    Toggle(isOn: $showsInDock) {
+                                    Toggle(isOn: $settingsController.showDockIcon) {
                                         Text("Show in Dock")
                                     }
                                     Spacer()

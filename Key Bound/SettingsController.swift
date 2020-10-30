@@ -25,15 +25,38 @@ class SettingsController: ObservableObject {
         }
     }
 
+    @Published var showDockIcon: Bool {
+        didSet {
+            userDefaults.setValue(showDockIcon, forKey: UserDefaults.showDockIconKey)
+            let activationPolicy: NSApplication.ActivationPolicy = showDockIcon ? .regular : .accessory
+            NSApp.setActivationPolicy(activationPolicy)
+        }
+    }
+
+    var hasLaunched: Bool {
+        get {
+            let launched: Bool = userDefaults.value(forKey: UserDefaults.hasLaunchedKey) as? Bool ?? false
+            self.hasLaunched = true
+            return launched
+        }
+        set {
+            userDefaults.setValue(newValue, forKey: UserDefaults.hasLaunchedKey)
+        }
+    }
+
     init() {
         let showInMenu: Bool = userDefaults.value(forKey: UserDefaults.showMenuKey) as? Bool ?? true
         let showPrefs: Bool = userDefaults.value(forKey: UserDefaults.showPrefsKey) as? Bool ?? true
+        let showDock: Bool = userDefaults.value(forKey: UserDefaults.showDockIconKey) as? Bool ?? true
         self.showInMenu = showInMenu
         self.showPrefsAtLaunch = showPrefs
+        self.showDockIcon = showDock
     }
 }
 
 extension UserDefaults {
     static let showMenuKey = "showMenu"
     static let showPrefsKey = "showPrefs"
+    static let showDockIconKey = "showDock"
+    static let hasLaunchedKey = "hasLaunched"
 }

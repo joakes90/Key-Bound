@@ -20,12 +20,14 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         let settingsController = SettingsController()
         requestPermissions()
-        // TODO: Make sure this is only fired when the open preferences at launch preference is enabled
         if settingsController.showPrefsAtLaunch {
             createPrefsWindow()
         }
         if settingsController.showInMenu {
             createStatusItem()
+        }
+        if !settingsController.hasLaunched {
+            disableAlertVolume()
         }
         regesterEvents()
     }
@@ -88,6 +90,25 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     private func regesterEvents() {
         keyListner = KeyListner(keybindingController: KeyBindingController.shared)
+    }
+
+    private func disableAlertVolume() {
+        let alert = NSAlert()
+        alert.messageText = "Disable Alert volume"
+        alert.informativeText = "Some applications like Finder may beep when standard function key are typed, while they are open. It's suggested you make sure the Alert Volume slider is turned down in System Preferences to scilence these beeps."
+        alert.addButton(withTitle: "Go to System Preferences")
+        alert.addButton(withTitle: "Cancel")
+        if let window = window {
+            alert.beginSheetModal(for: window) { (response) in
+                switch response {
+                case .alertFirstButtonReturn:
+                    let url = URL(fileURLWithPath: "/System/Library/PreferencePanes/Sound.prefPane")
+                    NSWorkspace.shared.open(url)
+                default:
+                    return
+                }
+            }
+        }
     }
 }
 
