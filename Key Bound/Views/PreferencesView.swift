@@ -5,13 +5,13 @@
 //  Created by Justin Oakes on 10/24/20.
 //
 
+import LaunchAtLogin
 import SwiftUI
 
 struct PreferencesView: View {
     @EnvironmentObject var keyBindingController: KeyBindingController
     @ObservedObject var settingsController = SettingsController()
     @State var showsInDock = true
-    @State var launchesAtLogin = true
     @State var showPrefsAtLaunch = true
 
 
@@ -46,7 +46,7 @@ struct PreferencesView: View {
                         .bold(), content: {
                             VStack {
                                 HStack{
-                                    Toggle(isOn: $showsInDock) {
+                                    Toggle(isOn: $showPrefsAtLaunch) {
                                         Text("Show Preferences window on app launch")
                                     }
                                     Spacer()
@@ -64,9 +64,7 @@ struct PreferencesView: View {
                                     Spacer()
                                 }
                                 HStack{
-                                    Toggle(isOn: $showsInDock) {
-                                        Text("Launches at Login")
-                                    }
+                                    LaunchAtLogin.Toggle()
                                     Spacer()
                                 }
                             }

@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -11,6 +11,7 @@
 		D033C2B32549B37700622D05 /* KeyListner.swift in Sources */ = {isa = PBXBuildFile; fileRef = D033C2B22549B37700622D05 /* KeyListner.swift */; };
 		D04490972547114F001625C6 /* KeyCodes.swift in Sources */ = {isa = PBXBuildFile; fileRef = D04490962547114F001625C6 /* KeyCodes.swift */; };
 		D044909B25471470001625C6 /* KeyBindingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D044909A25471470001625C6 /* KeyBindingController.swift */; };
+		D049BE25254C9B0C0099673E /* LaunchAtLogin in Frameworks */ = {isa = PBXBuildFile; productRef = D049BE24254C9B0C0099673E /* LaunchAtLogin */; };
 		D07A1EA12540D01600F45B05 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D07A1EA02540D01600F45B05 /* AppDelegate.swift */; };
 		D07A1EA32540D01600F45B05 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D07A1EA22540D01600F45B05 /* Assets.xcassets */; };
 		D07A1EA62540D01600F45B05 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = D07A1EA42540D01600F45B05 /* MainMenu.xib */; };
@@ -36,6 +37,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D049BE25254C9B0C0099673E /* LaunchAtLogin in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -98,15 +100,20 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D07A1EAB2540D01600F45B05 /* Build configuration list for PBXNativeTarget "Key Bound" */;
 			buildPhases = (
+				D049BE29254C9D580099673E /* Bump Build Number */,
 				D07A1E992540D01500F45B05 /* Sources */,
 				D07A1E9A2540D01500F45B05 /* Frameworks */,
 				D07A1E9B2540D01500F45B05 /* Resources */,
+				D049BE27254C9B6A0099673E /* Copy Launch Helper App */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = "Key Bound";
+			packageProductDependencies = (
+				D049BE24254C9B0C0099673E /* LaunchAtLogin */,
+			);
 			productName = "Key Bound";
 			productReference = D07A1E9D2540D01500F45B05 /* Key Bound.app */;
 			productType = "com.apple.product-type.application";
@@ -134,6 +141,9 @@
 				Base,
 			);
 			mainGroup = D07A1E942540D01500F45B05;
+			packageReferences = (
+				D049BE23254C9B0C0099673E /* XCRemoteSwiftPackageReference "LaunchAtLogin" */,
+			);
 			productRefGroup = D07A1E9E2540D01500F45B05 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -154,6 +164,45 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		D049BE27254C9B6A0099673E /* Copy Launch Helper App */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Launch Helper App";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${BUILT_PRODUCTS_DIR}/LaunchAtLogin_LaunchAtLogin.bundle/Contents/Resources/copy-helper-swiftpm.sh\"\n";
+		};
+		D049BE29254C9D580099673E /* Bump Build Number */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Bump Build Number";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Increments build number\nbuildNumber=$(git rev-list HEAD | wc -l | tr -d ' ')\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"${PROJECT_DIR}/${INFOPLIST_FILE}\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		D07A1E992540D01500F45B05 /* Sources */ = {
@@ -362,6 +411,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		D049BE23254C9B0C0099673E /* XCRemoteSwiftPackageReference "LaunchAtLogin" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "git@github.com:sindresorhus/LaunchAtLogin.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		D049BE24254C9B0C0099673E /* LaunchAtLogin */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D049BE23254C9B0C0099673E /* XCRemoteSwiftPackageReference "LaunchAtLogin" */;
+			productName = LaunchAtLogin;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = D07A1E952540D01500F45B05 /* Project object */;
 }
