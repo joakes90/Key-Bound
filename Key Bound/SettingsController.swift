@@ -18,13 +18,22 @@ class SettingsController: ObservableObject {
             (NSApplication.shared.delegate as? AppDelegate)?.toggleMenuVisability(isOn: showInMenu)
         }
     }
-    
+
+    @Published var showPrefsAtLaunch: Bool {
+        didSet {
+            userDefaults.setValue(showPrefsAtLaunch, forKey: UserDefaults.showPrefsKey)
+        }
+    }
+
     init() {
         let showInMenu: Bool = userDefaults.value(forKey: UserDefaults.showMenuKey) as? Bool ?? true
+        let showPrefs: Bool = userDefaults.value(forKey: UserDefaults.showPrefsKey) as? Bool ?? true
         self.showInMenu = showInMenu
+        self.showPrefsAtLaunch = showPrefs
     }
 }
 
 extension UserDefaults {
     static let showMenuKey = "showMenu"
+    static let showPrefsKey = "showPrefs"
 }

@@ -12,7 +12,6 @@ struct PreferencesView: View {
     @EnvironmentObject var keyBindingController: KeyBindingController
     @ObservedObject var settingsController = SettingsController()
     @State var showsInDock = true
-    @State var showPrefsAtLaunch = true
 
 
     var body: some View {
@@ -46,7 +45,7 @@ struct PreferencesView: View {
                         .bold(), content: {
                             VStack {
                                 HStack{
-                                    Toggle(isOn: $showPrefsAtLaunch) {
+                                    Toggle(isOn: $settingsController.showPrefsAtLaunch) {
                                         Text("Show Preferences window on app launch")
                                     }
                                     Spacer()

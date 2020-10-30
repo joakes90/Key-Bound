@@ -21,7 +21,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         let settingsController = SettingsController()
         requestPermissions()
         // TODO: Make sure this is only fired when the open preferences at launch preference is enabled
-        createPrefsWindow()
+        if settingsController.showPrefsAtLaunch {
+            createPrefsWindow()
+        }
         if settingsController.showInMenu {
             createStatusItem()
         }
