@@ -14,6 +14,19 @@
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="Key_Bound" customModuleProvider="target">
             <connections>
+                <outlet property="actionMenu" destination="q8u-xO-Uiq" id="X6b-PY-I21"/>
+                <outlet property="f10MenuItem" destination="KLl-ig-dnd" id="IM3-gg-UH8"/>
+                <outlet property="f11MenuItem" destination="gJH-BJ-bqN" id="U4q-u6-Jau"/>
+                <outlet property="f12MenuItem" destination="80v-Wh-qAk" id="hUZ-pR-GPF"/>
+                <outlet property="f1MenuItem" destination="WRB-DC-OyM" id="Xiq-qN-DHm"/>
+                <outlet property="f2MenuItem" destination="r7k-cD-1GK" id="dqO-na-qyg"/>
+                <outlet property="f3MenuItem" destination="UFh-y8-dlm" id="e2A-sp-yyc"/>
+                <outlet property="f4MenuItem" destination="bTN-OK-RZv" id="rgF-4u-peJ"/>
+                <outlet property="f5MenuItem" destination="VrV-pw-UbD" id="vlP-1R-ED2"/>
+                <outlet property="f6MenuItem" destination="kaz-A1-NEB" id="EaT-7Y-OEM"/>
+                <outlet property="f7MenuItem" destination="ioi-hC-0Bq" id="it5-H5-XSe"/>
+                <outlet property="f8MenuItem" destination="qzy-7d-YZY" id="j41-wr-KGC"/>
+                <outlet property="f9MenuItem" destination="o0M-bz-Xak" id="ysc-0o-L8r"/>
                 <outlet property="systemItemMenu" destination="beU-SB-yRL" id="ktf-kN-3aV"/>
             </connections>
         </customObject>
@@ -81,6 +94,85 @@
                         </items>
                     </menu>
                 </menuItem>
+                <menuItem title="Actions" state="on" id="k1o-1C-SdE">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <menu key="submenu" title="Actions" id="q8u-xO-Uiq">
+                        <items>
+                            <menuItem title="None" keyEquivalent="" id="WRB-DC-OyM">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="performAction:" target="Voe-Tx-rLC" id="gEn-jq-uBN"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="None" tag="1" keyEquivalent="" id="r7k-cD-1GK">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="performAction:" target="Voe-Tx-rLC" id="tdd-Xa-vdO"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="None" tag="2" keyEquivalent="" id="UFh-y8-dlm">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="performAction:" target="Voe-Tx-rLC" id="pcE-Lt-emM"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="None" tag="3" keyEquivalent="" id="bTN-OK-RZv">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="performAction:" target="Voe-Tx-rLC" id="p0e-Ju-aq6"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="None" tag="4" keyEquivalent="" id="VrV-pw-UbD">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="performAction:" target="Voe-Tx-rLC" id="9ug-WJ-kM7"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="None" tag="5" keyEquivalent="" id="kaz-A1-NEB">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="performAction:" target="Voe-Tx-rLC" id="NLx-dU-7gl"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="None" tag="6" keyEquivalent="" id="ioi-hC-0Bq">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="performAction:" target="Voe-Tx-rLC" id="1Z8-Xb-4b0"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="None" tag="7" keyEquivalent="" id="qzy-7d-YZY">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="performAction:" target="Voe-Tx-rLC" id="dlI-qD-Afs"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="None" tag="8" keyEquivalent="" id="o0M-bz-Xak">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="performAction:" target="Voe-Tx-rLC" id="yy8-V7-gCl"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="None" tag="9" keyEquivalent="" id="KLl-ig-dnd">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="performAction:" target="Voe-Tx-rLC" id="spb-KZ-jpe"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="None" tag="10" keyEquivalent="" id="gJH-BJ-bqN">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="performAction:" target="Voe-Tx-rLC" id="bH6-Tw-OX7"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="None" tag="11" keyEquivalent="" id="80v-Wh-qAk">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="performAction:" target="Voe-Tx-rLC" id="0gj-sw-w0v"/>
+                                </connections>
+                            </menuItem>
+                        </items>
+                    </menu>
+                </menuItem>
                 <menuItem title="View" id="H8h-7b-M4v">
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <menu key="submenu" title="View" id="HyV-fh-RgO">
@@ -132,7 +224,7 @@
                     </menu>
                 </menuItem>
             </items>
-            <point key="canvasLocation" x="16" y="154"/>
+            <point key="canvasLocation" x="33" y="158"/>
         </menu>
         <menu id="beU-SB-yRL">
             <items>
@@ -147,7 +239,7 @@
                     </connections>
                 </menuItem>
             </items>
-            <point key="canvasLocation" x="-64" y="225"/>
+            <point key="canvasLocation" x="-193" y="397"/>
         </menu>
     </objects>
 </document>

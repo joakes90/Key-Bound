@@ -6,6 +6,7 @@
 //
 
 import Cocoa
+import Combine
 import SwiftUI
 
 @NSApplicationMain
@@ -13,13 +14,35 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     var window: NSWindow?
     @IBOutlet weak var systemItemMenu: NSMenu!
+    @IBOutlet weak var actionMenu: NSMenu!
+
+    // Action Menu Items
+    @IBOutlet weak var f1MenuItem: NSMenuItem!
+    @IBOutlet weak var f2MenuItem: NSMenuItem!
+    @IBOutlet weak var f3MenuItem: NSMenuItem!
+    @IBOutlet weak var f4MenuItem: NSMenuItem!
+    @IBOutlet weak var f5MenuItem: NSMenuItem!
+    @IBOutlet weak var f6MenuItem: NSMenuItem!
+    @IBOutlet weak var f7MenuItem: NSMenuItem!
+    @IBOutlet weak var f8MenuItem: NSMenuItem!
+    @IBOutlet weak var f9MenuItem: NSMenuItem!
+    @IBOutlet weak var f10MenuItem: NSMenuItem!
+    @IBOutlet weak var f11MenuItem: NSMenuItem!
+    @IBOutlet weak var f12MenuItem: NSMenuItem!
+    
     
     var keyListner: KeyListner?
     var statusItem: NSStatusItem?
+    let keyBindingController = KeyBindingController.shared
+    var bindingSub: AnyCancellable?
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         let settingsController = SettingsController()
+        bindingSub = keyBindingController.objectWillChange.sink(receiveValue: { [weak self] (_) in
+            self?.labelActionMenuItems()
+        })
         requestPermissions()
+        labelActionMenuItems()
         if settingsController.showPrefsAtLaunch {
             createPrefsWindow()
         }
@@ -49,6 +72,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         }
     }
     
+    @IBAction func performAction(_ sender: NSMenuItem) {
+        let itemIndex = sender.tag
+        keyBindingController.bindings[itemIndex].mappedValue?.performAction()
+    }
+
     func toggleMenuVisability(isOn: Bool) {
         if isOn {
             createStatusItem()
@@ -65,11 +93,19 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
     }
     
+    private func labelActionMenuItems() {
+        for index in 0..<actionMenu.numberOfItems {
+            let binding = keyBindingController.bindings[index]
+            let menuItem = actionMenu.item(at: index)
+            menuItem?.title = binding.mappedValue?.actionName ?? "None"
+        }
+    }
+
     private func createPrefsWindow() {
         // TODO: This should no longer be a thing once the piblishers are up and running
         let preferencesView = PreferencesView()
             .frame(minWidth: 480.0, maxWidth: .infinity, minHeight: 600.0, maxHeight: .infinity)
-            .environmentObject(KeyBindingController.shared)
+            .environmentObject(keyBindingController)
         window = NSWindow(contentRect: NSRect(x: 0, y: 0, width: 480.0, height: 500.0),
                           styleMask: [.titled, .closable, .miniaturizable, .resizable],
                           backing: .buffered,
@@ -89,7 +125,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
 
     private func regesterEvents() {
-        keyListner = KeyListner(keybindingController: KeyBindingController.shared)
+        keyListner = KeyListner(keybindingController: keyBindingController)
     }
 
     private func disableAlertVolume() {
