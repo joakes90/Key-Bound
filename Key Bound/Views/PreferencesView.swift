@@ -27,8 +27,8 @@ struct PreferencesView: View {
                                     content: /*@START_MENU_TOKEN@*/{
                                         ForEach(MappableActionNames.allCases, id: \.self) { action in
                                             Button(action.rawValue) {
-                                                keyBindingController.objectWillChange.send()
                                                 binding.mappedValue = action.value
+                                                keyBindingController.objectWillChange.send()
                                             }
                                         }
                                     }/*@END_MENU_TOKEN@*/
