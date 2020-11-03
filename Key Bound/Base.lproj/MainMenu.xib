@@ -30,6 +30,7 @@
                 <outlet property="systemItemMenu" destination="beU-SB-yRL" id="ktf-kN-3aV"/>
             </connections>
         </customObject>
+        <customObject id="w0K-qB-vfu" customClass="SUUpdater"/>
         <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
         <menu title="Main Menu" systemMenu="main" id="AYu-sK-qS6">
             <items>
@@ -47,6 +48,12 @@
                             <menuItem title="Preferences…" keyEquivalent="," id="BOF-NM-1cW">
                                 <connections>
                                     <action selector="presentPreferences:" target="Voe-Tx-rLC" id="Kh1-uS-zZY"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Check for Updates..." id="bJf-D5-pNQ">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="checkForUpdates:" target="w0K-qB-vfu" id="DP9-oH-Udv"/>
                                 </connections>
                             </menuItem>
                             <menuItem isSeparatorItem="YES" id="wFC-TO-SCJ"/>

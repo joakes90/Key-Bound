@@ -16,7 +16,23 @@
 		D07A1EA32540D01600F45B05 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D07A1EA22540D01600F45B05 /* Assets.xcassets */; };
 		D07A1EA62540D01600F45B05 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = D07A1EA42540D01600F45B05 /* MainMenu.xib */; };
 		D0ACE7C12544B8E900EE2019 /* PreferencesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0ACE7C02544B8E900EE2019 /* PreferencesView.swift */; };
+		D0C1095C2551AAF500CE249C /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0C1095B2551AAF500CE249C /* Sparkle.framework */; };
+		D0C1095F2551ABDB00CE249C /* Sparkle.framework in Copy Files */ = {isa = PBXBuildFile; fileRef = D0C1095B2551AAF500CE249C /* Sparkle.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		D0C1095E2551ABAF00CE249C /* Copy Files */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				D0C1095F2551ABDB00CE249C /* Sparkle.framework in Copy Files */,
+			);
+			name = "Copy Files";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		D01467C2254B50F2009FF598 /* SettingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
@@ -30,6 +46,7 @@
 		D07A1EA72540D01600F45B05 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D07A1EA82540D01600F45B05 /* Key_Bound.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Key_Bound.entitlements; sourceTree = "<group>"; };
 		D0ACE7C02544B8E900EE2019 /* PreferencesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesView.swift; sourceTree = "<group>"; };
+		D0C1095B2551AAF500CE249C /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Sparkle.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -38,6 +55,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D049BE25254C9B0C0099673E /* LaunchAtLogin in Frameworks */,
+				D0C1095C2551AAF500CE249C /* Sparkle.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -58,6 +76,7 @@
 			isa = PBXGroup;
 			children = (
 				D07A1E9F2540D01500F45B05 /* Key Bound */,
+				D0C1095A2551AADA00CE249C /* Frameworks */,
 				D07A1E9E2540D01500F45B05 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -93,6 +112,14 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		D0C1095A2551AADA00CE249C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D0C1095B2551AAF500CE249C /* Sparkle.framework */,
+			);
+			path = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -105,6 +132,7 @@
 				D07A1E9A2540D01500F45B05 /* Frameworks */,
 				D07A1E9B2540D01500F45B05 /* Resources */,
 				D049BE27254C9B6A0099673E /* Copy Launch Helper App */,
+				D0C1095E2551ABAF00CE249C /* Copy Files */,
 			);
 			buildRules = (
 			);
@@ -357,10 +385,15 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = C2NSPAKWYK;
 				ENABLE_HARDENED_RUNTIME = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Frameworks",
+				);
 				INFOPLIST_FILE = "Key Bound/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.joakes.Key-Bound";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -378,10 +411,15 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = C2NSPAKWYK;
 				ENABLE_HARDENED_RUNTIME = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Frameworks",
+				);
 				INFOPLIST_FILE = "Key Bound/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.joakes.Key-Bound";
 				PRODUCT_NAME = "$(TARGET_NAME)";
