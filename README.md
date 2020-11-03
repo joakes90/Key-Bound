@@ -10,7 +10,7 @@ This application is very basic and limited to F1-F12 function key mapping only. 
 It is recommended that you lower or disable your Alert Volume in the sound system preferences. 
 You'll be prompted to do this the first time the app launches.
 This is because some applications including the Finder treat raw function key events as erroneous input and produce an NSBeep sound.
-You will also want to make sure to Key Bound has accessibility permissions to ensure that you can use the mapped functionality when Key Bound is not the active application.
+You will also want to make sure Key Bound has accessibility permissions to ensure that you can use the mapped functionality when Key Bound is not the active application.
 This can also be set up in system preferences in the security and privacy settings.
 
 [Download here](https://github.com/joakes90/Key-Bound/releases/tag/v1.0)
