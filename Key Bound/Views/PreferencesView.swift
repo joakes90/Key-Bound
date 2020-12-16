@@ -76,7 +76,9 @@ struct PreferencesView: View {
 struct Preferences_Previews: PreviewProvider {
     static var previews: some View {
         let keyBindingcontroller = KeyBindingController(functionKeys: FunctionKey.allCases, userDefaults: nil)
-        PreferencesView(settingsController: SettingsController(usingDefaults: nil))
-            .environmentObject(keyBindingcontroller)
+        Group {
+            PreferencesView(settingsController: SettingsController(usingDefaults: nil))
+                .environmentObject(keyBindingcontroller)
+        }
     }
 }

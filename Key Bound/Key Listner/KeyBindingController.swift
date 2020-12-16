@@ -32,7 +32,7 @@ class Binding: Hashable {
     init(key: FunctionKey, userDefaults: UserDefaults?) {
         self.key = key
         self.userDefaults = userDefaults
-        let value = UserDefaults.standard.value(forKey: key.rawValue)
+        let value = userDefaults?.value(forKey: key.rawValue)
         if let value = value as? Int32 {
             self.mappedValue = .keyEvent(value)
         }
