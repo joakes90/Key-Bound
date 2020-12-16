@@ -33,11 +33,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     var keyListner: KeyListner?
     var statusItem: NSStatusItem?
-    let keyBindingController = KeyBindingController.shared
+    let keyBindingController = KeyBindingController(functionKeys: FunctionKey.allCases)
     var bindingSub: AnyCancellable?
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
-        let settingsController = SettingsController()
+        let settingsController = SettingsController(usingDefaults: UserDefaults.standard)
         bindingSub = keyBindingController.objectWillChange.sink(receiveValue: { [weak self] (_) in
             self?.labelActionMenuItems()
         })
@@ -102,8 +102,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
 
     private func createPrefsWindow() {
-        // TODO: This should no longer be a thing once the piblishers are up and running
-        let preferencesView = PreferencesView()
+        let preferencesView = PreferencesView(settingsController: SettingsController(usingDefaults: .standard))
+            .environmentObject(keyBindingController)
             .frame(minWidth: 480.0, maxWidth: .infinity, minHeight: 600.0, maxHeight: .infinity)
             .environmentObject(keyBindingController)
         window = NSWindow(contentRect: NSRect(x: 0, y: 0, width: 480.0, height: 500.0),

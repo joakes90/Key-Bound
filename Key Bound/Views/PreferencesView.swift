@@ -10,7 +10,7 @@ import SwiftUI
 
 struct PreferencesView: View {
     @EnvironmentObject var keyBindingController: KeyBindingController
-    @ObservedObject var settingsController = SettingsController()
+    @ObservedObject var settingsController: SettingsController
 
 
     var body: some View {
@@ -75,6 +75,8 @@ struct PreferencesView: View {
 
 struct Preferences_Previews: PreviewProvider {
     static var previews: some View {
-        PreferencesView()
+        let keyBindingcontroller = KeyBindingController(functionKeys: FunctionKey.allCases, userDefaults: nil)
+        PreferencesView(settingsController: SettingsController(usingDefaults: nil))
+            .environmentObject(keyBindingcontroller)
     }
 }

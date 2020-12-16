@@ -14,22 +14,24 @@ protocol KeyBindingControlable {
 
 class Binding: Hashable {
     let key: FunctionKey
+    let userDefaults: UserDefaults?
     var mappedValue: MappedValue? {
         didSet {
             switch mappedValue {
             case .keyEvent(let number):
-                UserDefaults.standard.setValue(number, forKey: key.rawValue)
+                userDefaults?.setValue(number, forKey: key.rawValue)
             case .appLaunch(let string):
-                UserDefaults.standard.setValue(string, forKey: key.rawValue)
+                userDefaults?.setValue(string, forKey: key.rawValue)
             default:
-                UserDefaults.standard.setValue(nil, forKey: FunctionKey.f1.rawValue)
+                userDefaults?.setValue(nil, forKey: FunctionKey.f1.rawValue)
             }
-            UserDefaults.standard.synchronize()
+            userDefaults?.synchronize()
         }
     }
     
-    init(key: FunctionKey) {
+    init(key: FunctionKey, userDefaults: UserDefaults?) {
         self.key = key
+        self.userDefaults = userDefaults
         let value = UserDefaults.standard.value(forKey: key.rawValue)
         if let value = value as? Int32 {
             self.mappedValue = .keyEvent(value)
@@ -55,12 +57,14 @@ class Binding: Hashable {
 }
 
 class KeyBindingController: KeyBindingControlable, ObservableObject {
-    
-    static let shared = KeyBindingController()
+
+    private var userDefaults: UserDefaults?
+    static let shared = KeyBindingController(functionKeys: FunctionKey.allCases)
     @Published var bindings = [Binding]()
     
-    init() {
-        FunctionKey.allCases.forEach({ bindings.append(Binding(key: $0))})
+    init(functionKeys: [FunctionKey], userDefaults: UserDefaults? = UserDefaults.standard) {
+        self.userDefaults = userDefaults
+        functionKeys.forEach({ bindings.append(Binding(key: $0, userDefaults: userDefaults))})
     }
 }
 
