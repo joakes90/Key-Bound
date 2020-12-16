@@ -22,17 +22,16 @@ struct PreferencesView: View {
                         HStack {
                             Text(binding.key.rawValue.uppercased())
                             Spacer()
-                                MenuButton(
-                                    label: Text(binding.mappedValue?.actionName ?? "None"),
-                                    content: /*@START_MENU_TOKEN@*/{
-                                        ForEach(MappableActionNames.allCases, id: \.self) { action in
-                                            Button(action.rawValue) {
-                                                binding.mappedValue = action.value
-                                                keyBindingController.objectWillChange.send()
-                                            }
-                                        }
-                                    }/*@END_MENU_TOKEN@*/
-)
+                            Menu(content: {
+                                ForEach(MappableActionNames.allCases, id: \.self) { action in
+                                    Button(action.rawValue) {
+                                        binding.mappedValue = action.value
+                                        keyBindingController.objectWillChange.send()
+                                    }
+                                }
+                            }, label: {
+                                Text(binding.mappedValue?.actionName ?? "None")
+                            })
                             .frame(width: 250, alignment: .center)
                         }
                     }
