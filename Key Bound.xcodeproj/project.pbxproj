@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		D01467C3254B50F2009FF598 /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D01467C2254B50F2009FF598 /* SettingsController.swift */; };
 		D033C2B32549B37700622D05 /* KeyListner.swift in Sources */ = {isa = PBXBuildFile; fileRef = D033C2B22549B37700622D05 /* KeyListner.swift */; };
+		D043C39325DEFB0A00F36267 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D043C39125DEFB0500F36267 /* Sparkle.framework */; };
+		D043C39425DEFB0A00F36267 /* Sparkle.framework in Copy Files */ = {isa = PBXBuildFile; fileRef = D043C39125DEFB0500F36267 /* Sparkle.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D04490972547114F001625C6 /* KeyCodes.swift in Sources */ = {isa = PBXBuildFile; fileRef = D04490962547114F001625C6 /* KeyCodes.swift */; };
 		D044909B25471470001625C6 /* KeyBindingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D044909A25471470001625C6 /* KeyBindingController.swift */; };
 		D049BE25254C9B0C0099673E /* LaunchAtLogin in Frameworks */ = {isa = PBXBuildFile; productRef = D049BE24254C9B0C0099673E /* LaunchAtLogin */; };
@@ -16,8 +18,6 @@
 		D07A1EA32540D01600F45B05 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D07A1EA22540D01600F45B05 /* Assets.xcassets */; };
 		D07A1EA62540D01600F45B05 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = D07A1EA42540D01600F45B05 /* MainMenu.xib */; };
 		D0ACE7C12544B8E900EE2019 /* PreferencesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0ACE7C02544B8E900EE2019 /* PreferencesView.swift */; };
-		D0C1095C2551AAF500CE249C /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0C1095B2551AAF500CE249C /* Sparkle.framework */; };
-		D0C1095F2551ABDB00CE249C /* Sparkle.framework in Copy Files */ = {isa = PBXBuildFile; fileRef = D0C1095B2551AAF500CE249C /* Sparkle.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -27,7 +27,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				D0C1095F2551ABDB00CE249C /* Sparkle.framework in Copy Files */,
+				D043C39425DEFB0A00F36267 /* Sparkle.framework in Copy Files */,
 			);
 			name = "Copy Files";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -37,6 +37,7 @@
 /* Begin PBXFileReference section */
 		D01467C2254B50F2009FF598 /* SettingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
 		D033C2B22549B37700622D05 /* KeyListner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyListner.swift; sourceTree = "<group>"; };
+		D043C39125DEFB0500F36267 /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Sparkle.framework; sourceTree = "<group>"; };
 		D04490962547114F001625C6 /* KeyCodes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyCodes.swift; sourceTree = "<group>"; };
 		D044909A25471470001625C6 /* KeyBindingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyBindingController.swift; sourceTree = "<group>"; };
 		D07A1E9D2540D01500F45B05 /* Key Bound.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Key Bound.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -46,7 +47,6 @@
 		D07A1EA72540D01600F45B05 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D07A1EA82540D01600F45B05 /* Key_Bound.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Key_Bound.entitlements; sourceTree = "<group>"; };
 		D0ACE7C02544B8E900EE2019 /* PreferencesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesView.swift; sourceTree = "<group>"; };
-		D0C1095B2551AAF500CE249C /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Sparkle.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,7 +55,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D049BE25254C9B0C0099673E /* LaunchAtLogin in Frameworks */,
-				D0C1095C2551AAF500CE249C /* Sparkle.framework in Frameworks */,
+				D043C39325DEFB0A00F36267 /* Sparkle.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -115,7 +115,7 @@
 		D0C1095A2551AADA00CE249C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				D0C1095B2551AAF500CE249C /* Sparkle.framework */,
+				D043C39125DEFB0500F36267 /* Sparkle.framework */,
 			);
 			path = Frameworks;
 			sourceTree = "<group>";
