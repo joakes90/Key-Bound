@@ -106,7 +106,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 //            .environmentObject(keyBindingController)
 //            .frame(minWidth: 480.0, maxWidth: .infinity, minHeight: 600.0, maxHeight: .infinity)
 //            .environmentObject(keyBindingController)
-        let prefsViewController = PreferencesAppKitview(nibName: "PreferencesAppKitview", bundle: nil)
+        let prefsViewController = PreferencesAppKitView(nibName: "PreferencesAppKitView", bundle: nil)
         window = NSWindow(contentRect: NSRect(x: 0, y: 0, width: 480.0, height: 500.0),
                           styleMask: [.titled, .closable, .miniaturizable, .resizable],
                           backing: .buffered,

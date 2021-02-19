@@ -10,7 +10,6 @@ import Cocoa
 class BindingPreferenceView: NSView {
 
     private let binding: Binding
-    
     init(with binding: Binding, frame: NSRect) {
         self.binding = binding
         super.init(frame: frame)
@@ -22,22 +21,19 @@ class BindingPreferenceView: NSView {
     }
     
     private func initCommon() {
-        let stackView = NSStackView()
+        translatesAutoresizingMaskIntoConstraints = false
+        let testLabel = NSTextField(labelWithString: "Hello")
+        let stackView = NSStackView(views: [testLabel])
         stackView.orientation = .horizontal
         stackView.alignment = .leading
         stackView.distribution = .fillProportionally
-        
-        let testLabel = NSTextField(labelWithString: "Hello")
-        
-        stackView.addArrangedSubview(testLabel)
-        
         addSubview(stackView)
         
         NSLayoutConstraint.activate([
-            stackView.topAnchor.constraint(equalTo: topAnchor),
-            stackView.bottomAnchor.constraint(equalTo: bottomAnchor),
-            stackView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            stackView.trailingAnchor.constraint(equalTo: trailingAnchor)
+            stackView.heightAnchor.constraint(equalTo: heightAnchor),
+            stackView.widthAnchor.constraint(equalTo: widthAnchor),
+            stackView.centerXAnchor.constraint(equalTo: centerXAnchor),
+            stackView.centerYAnchor.constraint(equalTo: centerYAnchor)
         ])
     }
 }

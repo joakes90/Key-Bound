@@ -7,7 +7,7 @@
 
 import Cocoa
 
-class PreferencesAppKitview: NSViewController {
+class PreferencesAppKitView: NSViewController {
 
     @IBOutlet weak var keyBindingStackView: NSStackView!
     
@@ -19,8 +19,10 @@ class PreferencesAppKitview: NSViewController {
     
     private func createBindingRows() {
         KeyBindingController.shared.bindings.forEach { (binding) in
-            let bindingView = BindingPreferenceView(with: binding, frame: NSRect(x: 0.0, y: 0.0, width: 500.0, height: 25.0))
+            let bindingView = BindingPreferenceView(with: binding, frame: NSRect(x: 0.0, y: 0.0, width: view.frame.width, height: 25.0))
             keyBindingStackView.addArrangedSubview(bindingView)
+            bindingView.heightAnchor.constraint(equalToConstant: 25.0).isActive = true
+            bindingView.widthAnchor.constraint(equalTo: keyBindingStackView.widthAnchor).isActive = true
         }
     }
 }
