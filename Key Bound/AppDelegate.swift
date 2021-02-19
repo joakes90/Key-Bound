@@ -102,10 +102,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
 
     private func createPrefsWindow() {
-        let preferencesView = PreferencesView(settingsController: SettingsController(usingDefaults: .standard))
-            .environmentObject(keyBindingController)
-            .frame(minWidth: 480.0, maxWidth: .infinity, minHeight: 600.0, maxHeight: .infinity)
-            .environmentObject(keyBindingController)
+//        let preferencesView = PreferencesView(settingsController: SettingsController(usingDefaults: .standard))
+//            .environmentObject(keyBindingController)
+//            .frame(minWidth: 480.0, maxWidth: .infinity, minHeight: 600.0, maxHeight: .infinity)
+//            .environmentObject(keyBindingController)
+        let prefsViewController = PreferencesAppKitview(nibName: "PreferencesAppKitview", bundle: nil)
         window = NSWindow(contentRect: NSRect(x: 0, y: 0, width: 480.0, height: 500.0),
                           styleMask: [.titled, .closable, .miniaturizable, .resizable],
                           backing: .buffered,
@@ -113,7 +114,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         window?.isReleasedWhenClosed = false
         window?.center()
         window?.setFrameAutosaveName("Preferences")
-        window?.contentView = NSHostingView(rootView: preferencesView)
+        window?.contentViewController = prefsViewController
+//        window?.contentView = NSHostingView(rootView: preferencesView)
         window?.title = "Preferences"
         window?.makeKeyAndOrderFront(self)
     }
