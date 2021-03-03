@@ -22,7 +22,7 @@ class BindingPreferenceView: NSView {
     
     private func initCommon() {
         translatesAutoresizingMaskIntoConstraints = false
-        let testLabel = NSTextField(labelWithString: "Hello")
+        let testLabel = NSTextField(labelWithString: binding.key.rawValue.uppercased())
         let stackView = NSStackView(views: [testLabel])
         stackView.orientation = .horizontal
         stackView.alignment = .leading
